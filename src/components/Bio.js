@@ -15,6 +15,7 @@ function Bio() {
             style={{
               display: `flex`,
               marginBottom: rhythm(2.5),
+              alignItems: 'center'
             }}
           >
             <Image
@@ -27,12 +28,14 @@ function Bio() {
                 borderRadius: `100%`,
               }}
             />
-            <p>
-              Written by <strong>{author}</strong> who lives and works in San
-              Francisco building useful things.
+            <p style={{marginBottom: 0}}>
+              <strong>{author}</strong>.
+              <br/>
               {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
+              I write code, hoard hobbies, and sometimes record the experience.
+              {` `}
+              <a href={`https://github.com/${social.github}`}>
+                Github
               </a>
             </p>
           </div>
@@ -55,7 +58,7 @@ const bioQuery = graphql`
       siteMetadata {
         author
         social {
-          twitter
+          github
         }
       }
     }
