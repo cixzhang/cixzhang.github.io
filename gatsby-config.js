@@ -1,8 +1,9 @@
 module.exports = {
+  pathPrefix: "/blog",
   siteMetadata: {
-    title: `Blogafolio`,
+    title: `Cindy Zhang`,
     author: `Cindy Zhang`,
-    description: `Personal blog and project portfolio.`,
+    description: `Personal blog.`,
     siteUrl: `https://cixzhang.github.io`,
     social: {
       github: 'cixzhang'
@@ -57,8 +58,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Blogafolio`,
-        short_name: `blogafolio`,
+        name: `Cindy Zhang`,
+        short_name: `cixzhang`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

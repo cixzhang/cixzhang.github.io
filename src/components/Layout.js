@@ -7,19 +7,10 @@ import BackLink from '../components/BackLink'
 
 class Layout extends React.Component {
   render() {
-    const { location, children } = this.props
+    const { location, children, header: _header } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
-    let header
+    const header = _header || (location.pathname === rootPath ? <Bio /> : <BackLink />);
 
-    if (location.pathname === rootPath) {
-      header = (
-        <Bio />
-      )
-    } else {
-      header = (
-        <BackLink />
-      )
-    }
     return (
       <div
         style={{
