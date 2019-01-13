@@ -1,9 +1,8 @@
 module.exports = {
-  pathPrefix: "/blog",
   siteMetadata: {
     title: `Cindy Zhang`,
     author: `Cindy Zhang`,
-    description: `Personal blog.`,
+    description: `Personal blogafolio.`,
     siteUrl: `https://cixzhang.github.io`,
     social: {
       github: 'cixzhang'
