@@ -182,7 +182,7 @@ class RSVPForm extends React.PureComponent {
   _runScript(scriptId, parameters) {
     const fetchParameters = [];
     Object.keys(parameters).forEach(key => {
-      fetchParameters.push(`${key}=${parameters[key]}`);
+      fetchParameters.push(`${key}=${encodeURIComponent(parameters[key])}`);
     });
     return fetch(`https://script.google.com/macros/s/${scriptId}/exec?${fetchParameters.join('&')}`);
   }
