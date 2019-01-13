@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Cindy Zhang]]></title><description><![CDATA[Personal blogafolio.]]></description><link>https://cixzhang.github.io</link><generator>RSS for Node</generator><lastBuildDate>Sun, 13 Jan 2019 21:49:18 GMT</lastBuildDate><item><title><![CDATA[Guest Lists and RSVPs With Google Sheets]]></title><description><![CDATA[I’m getting married this year and decided that instead of dealing
+with paper RSVPs, I want to do them digitally and automatically
+update a…]]></description><link>https://cixzhang.github.io/wedding-rsvp-using-google-forms/</link><guid isPermaLink="false">https://cixzhang.github.io/wedding-rsvp-using-google-forms/</guid><pubDate>Sun, 13 Jan 2019 07:02:14 GMT</pubDate><content:encoded>&lt;p&gt;I’m getting married this year and decided that instead of dealing
+with paper RSVPs, I want to do them digitally and automatically
+update a Google Sheet that I’m using to keep track of all the details.
+My first idea was to use Google Forms, but unfortunately there doesn’t
+seem to be a way to enforce that only guests on the list could respond.&lt;/p&gt;
+&lt;p&gt;However, there’s a way to do this by using Google’s App Scripts,
+which makes it possible to have this functionality with all the benefits of
+a form that’s tied to your event spreadsheet. You don’t even need to make
+the spreadsheet public since the scripts can run under your own permissions.&lt;/p&gt;
+&lt;p&gt;Here’s how it works:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The User is prompted to enter their name.&lt;/li&gt;
+&lt;li&gt;The page sends a request to a script that checks the name against the guest list. (App Script #1)&lt;/li&gt;
+&lt;li&gt;If we’re able to find the user, prompt the rest of the form questions.&lt;/li&gt;
+&lt;li&gt;Once the user submits, make a request to a second script that records the information. (App Script #2)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&quot;https://script.google.com/d/1koKbzUqZyLHREU2J36KJsmy6mlg3VIY7d1ezZyyBYzMPCyB5N5N1Ibh8&quot;&gt;Script 1: The Guest List Checker&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://script.google.com/d/1d5r0QPaxoDiBUt9RljSs7gdKAV0-BTaXf_3k-SVALGZl99i8h-2t0Ywr&quot;&gt;Script 2: The RSVP Recorder&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Other features I missed:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Editing the RSVP: In the current setup, guests can edit their responses by
+resubmitting. Unfortunately, I don’t prepopulate the form with the current response.
+The risk here is that it would expose the guest attendance and notes to anyone who
+knows their name. I decided that just being able to resend the RSVP should be sufficient.&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>
