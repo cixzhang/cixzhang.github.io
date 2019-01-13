@@ -1,28 +1,19 @@
 ---
-title: RSVPs With Google Forms
+title: Guest Lists and RSVPs With Google Sheets
 date: '2019-01-13T07:02:14.747Z'
 tags: [wedding]
 ---
 
 I'm getting married this year and decided that instead of dealing
-with paper RSVPs, I want to do them digitally.
+with paper RSVPs, I want to do them digitally and automatically
+update a Google Sheet that I'm using to keep track of all the details.
+My first idea was to use Google Forms, but unfortunately there doesn't
+seem to be a way to enforce that only guests on the list could respond.
 
-These days there are plenty of great free options for creating a
-wedding site with RSVPs quickly and easily. You can create one with theKnot and
-I believe Zola has this feature as well. The unfortunate part is that you need
-to set up your RSVPs on their site. I just wanted an RSVP form that I could embed
-onto my own site and connects with the Google Sheet I'm using to keep track
-of all the invites.
-
-Originally, I planned to link to a Google Form for the guest
-to RSVP before deciding to embed a form on the page with a workflow.
-
-The problem with my original plan was that the Google Form doesn't have
-a way to validate or gate who can submit the form by whether they're in
-the guest list. However, there's a way to do this by using Google's App Scripts,
+However, there's a way to do this by using Google's App Scripts,
 which makes it possible to have this functionality with all the benefits of
-a form that's tied to your event spreadsheet. I managed to accomplish
-this by writing 2 App Scripts.
+a form that's tied to your event spreadsheet. You don't even need to make 
+the spreadsheet public since the scripts can run under your own permissions.
 
 Here's how it works:
 
@@ -31,8 +22,13 @@ Here's how it works:
 3. If we're able to find the user, prompt the rest of the form questions.
 4. Once the user submits, make a request to a second script that records the information. (App Script #2)
 
-[App Script #1](https://script.google.com/d/1koKbzUqZyLHREU2J36KJsmy6mlg3VIY7d1ezZyyBYzMPCyB5N5N1Ibh8)
+[Script 1: The Guest List Checker](https://script.google.com/d/1koKbzUqZyLHREU2J36KJsmy6mlg3VIY7d1ezZyyBYzMPCyB5N5N1Ibh8)
 
-This script was created within the wedding spreadsheet. I've got a sheet that's named "RSVP"
-which contained a list of everyone we wanted to invite to the wedding. The script loads
-the list of names and returns all matches it can find.
+[Script 2: The RSVP Recorder](https://script.google.com/d/1d5r0QPaxoDiBUt9RljSs7gdKAV0-BTaXf_3k-SVALGZl99i8h-2t0Ywr)
+
+Other features I missed:
+
+* Editing the RSVP: In the current setup, guests can edit their responses by
+  resubmitting. Unfortunately, I don't prepopulate the form with the current response.
+  The risk here is that it would expose the guest attendance and notes to anyone who
+  knows their name. I decided that just being able to resend the RSVP should be sufficient.

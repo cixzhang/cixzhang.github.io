@@ -20,12 +20,13 @@ class RSVPForm extends React.PureComponent {
 
     this._onSubmitFullName = this._onSubmitFullName.bind(this);
     this._onSubmitPickName = this._onSubmitPickName.bind(this);
+    this._onSubmitResponse = this._onSubmitResponse.bind(this);
   }
 
   render() {
     let content = this._getContent();
     if (this.state.pending) {
-      content = '...'
+      content = 'Please wait, this should only take a few seconds...'
     }
     return <div className="wedding-rsvp-form">
       {content}
@@ -71,7 +72,10 @@ class RSVPForm extends React.PureComponent {
           <button type="submit">Submit</button>
         </form>
       }
-      case SECTION_NAME_NOT_FOUND: {
+      case SECTION_RESULT_COMPLETE: {
+        return <p>Thank you for RSVPing!</p>
+      }
+      case SECTION_RESULT_NAME_NOT_FOUND: {
         return <p>We couldn't find you :( Contact Cindy or PK to record your RSVP.</p>
       }
       case SECTION_ERROR:
@@ -85,10 +89,12 @@ class RSVPForm extends React.PureComponent {
 
   _onSubmitFullName(e) {
     e.preventDefault()
-    const nameChecker = 'AKfycbzmKjyL0frLgC_OU0bGBFGUxGWs7AaD614oHZY1cFkLGlIy_UU'
     const fullname = new FormData(e.target).get('fullname')
     this.setState({pending: true})
-    fetch(`https://script.google.com/macros/s/${nameChecker}/exec?fullname=${fullname}`)
+    this._runScript(
+      'AKfycbzmKjyL0frLgC_OU0bGBFGUxGWs7AaD614oHZY1cFkLGlIy_UU',
+      {fullname: fullname}
+    )
       .then((response) => {
         return response.json();
       })
@@ -143,8 +149,42 @@ class RSVPForm extends React.PureComponent {
   _onSubmitResponse(e) {
     e.preventDefault()
     const num = new FormData(e.target).get('num')
-    const notes = new FormData(e.target).get('note')
-    console.log(num, notes);
+    const note = new FormData(e.target).get('note')
+    this.setState({ pending: true })
+    this._runScript(
+      'AKfycbyLa_AhGpp6BYqeQ7otM_74YAdfSOxPWxGNFB1DAl3JrMCUeEo',
+      {
+        name: this.state.name,
+        num: num,
+        note: note,
+      }
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        if (!json.result.success) {
+          throw new Error('Failed to record response.');
+        }
+        this.setState({
+          pending: false,
+          section: SECTION_RESULT_COMPLETE,
+        });
+      })
+      .catch(() => {
+        this.setState({
+          pending: false,
+          section: SECTION_ERROR,
+        });
+      });
+  }
+
+  _runScript(scriptId, parameters) {
+    const fetchParameters = [];
+    Object.keys(parameters).forEach(key => {
+      fetchParameters.push(`${key}=${parameters[key]}`);
+    });
+    return fetch(`https://script.google.com/macros/s/${scriptId}/exec?${fetchParameters.join('&')}`);
   }
 }
 
