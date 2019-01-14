@@ -1,4 +1,5 @@
 import React from 'react'
+import Select from 'react-select'
 
 const SECTION_ENTER_NAME = 0;
 const SECTION_PICK_NAME_MATCH = 1;
@@ -16,6 +17,7 @@ class RSVPForm extends React.PureComponent {
       section: SECTION_ENTER_NAME,
       namescores: [],
       name: null,
+      selectValue: null,
     };
 
     this._onSubmitFullName = this._onSubmitFullName.bind(this);
@@ -41,36 +43,45 @@ class RSVPForm extends React.PureComponent {
       case SECTION_ENTER_NAME: {
         return <form onSubmit={this._onSubmitFullName}>
           <label name="fullname">Full Name</label>
-          <input type="text" name="fullname" />
-          <button type="submit">Find Me</button>
+          <div className="single-line-form">
+            <input type="text" name="fullname" />
+            <button type="submit">Find Me</button>
+          </div>
         </form>
       }
       case SECTION_PICK_NAME_MATCH: {
+        const options = this.state.namescores.map((namescore) => {
+          const name = namescore.name;
+          return {value: name, label: name};
+        });
+        options.push({ value: 0, label: `I'm not listed here :(` })
         return <form onSubmit={this._onSubmitPickName}>
-          <p>
-            Is this you? If not, pick an option from the list :)
-          </p>
-          <select name="name">
-            {this.state.namescores.map((namescore) => {
-              const name = namescore.name;
-              return <option key={name} value={name}>{name}</option>
-            })}
-            <option key="0" value="0">I'm not listed here :(</option>
-          </select>
-          <button type="submit">Continue</button>
+          <span>
+            Is this you? If not, pick an option from the list.
+          </span>
+          <div className="single-line-form">
+            <Select
+              name="name"
+              options={options}
+              value={this.state.selectValue}
+              onChange={(option) => this.setState({selectValue: option})}
+              className="select"
+              isClearable />
+            <button type="submit">Continue</button>
+          </div>
         </form>
       }
       case SECTION_ENTER_RESPONSE: {
         return <form onSubmit={this._onSubmitResponse}>
-          <p>
-            ~Welcome {this.state.name}!~
-          </p>
+          <span>
+            ~Welcome <b>{this.state.name}</b>!~
+          </span><br />
           <label name="num">How many are attending?</label>
           <input type="number" name="num" />
           <br />
           <label name="note">Leave us a note</label>
           <textarea name="note"></textarea>
-          <button type="submit">Submit</button>
+          <button type="submit" style={{float: 'right'}}>Submit</button>
         </form>
       }
       case SECTION_RESULT_COMPLETE: {
@@ -117,6 +128,10 @@ class RSVPForm extends React.PureComponent {
           this.setState({
             namescores: namescores,
             section: SECTION_PICK_NAME_MATCH,
+            selectValue: {
+              value: namescores[0].name,
+              label: namescores[0].name
+            },
           });
         } else {
           this.setState({

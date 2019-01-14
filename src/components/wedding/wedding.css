@@ -10,28 +10,46 @@ body {
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Josefin Slab', serif;
   font-weight: 600;
-}
-
-h1 {
   margin-top: 0.5em;
-}
-
-input, textarea, button {
-  border-radius: 6px;
-  border: 0px;
+  margin-bottom: 0.5em;
 }
 
 input, textarea {
-  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  border: 1px solid hsl(0,0%,80%);
+  background-color: rgba(255, 255, 255, 1);
   width: 100%;
   resize: vertical;
   flex: 1;
+  padding: 2px 8px;
+}
+
+.select {
+  width: 100%;
 }
 
 button {
+  border-radius: 4px;
   margin-left: 0.25em;
+  background-color: rgba(116, 166, 145, 50);
+  color: white;
+  border: 1px solid rgba(116, 166, 145, 50);
+  cursor: pointer;
 }
 
+button:hover {
+  border: 1px solid white;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+button:active {
+  border: 1px solid white;
+  background-color: rgba(116, 166, 145, 100);
+}
+
+.wedding-rsvp-form {
+  height: 350px;
+}
 .single-line-form {
   display: flex;
 }
