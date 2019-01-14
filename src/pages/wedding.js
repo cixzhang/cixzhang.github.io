@@ -1,24 +1,55 @@
 import React from 'react'
 
-import Layout from '../components/Layout'
+import styles from "../components/wedding/wedding.css"
 import SEO from '../components/seo'
 
-import Header from '../components/wedding/Header'
 import RSVPForm from '../components/wedding/RSVPForm'
+import { rhythm } from '../utils/typography'
 
-class BlogIndex extends React.Component {
+class Wedding extends React.Component {
   render() {
     return (
-      <Layout location={this.props.location} header={<Header />}>
+      <div
+        style={{
+          marginLeft: `auto`,
+          marginRight: `auto`,
+          maxWidth: rhythm(24),
+          padding: `${rhythm(0.5)} ${rhythm(3 / 4)} ${rhythm(1.5)}`,
+        }}
+      >
         <SEO
           title="Cindy + PK's Wedding"
           keywords={[`wedding`]}
           hideSiteTitle
         />
+        <div
+          style={{
+            display: `flex`,
+            alignItems: 'center',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            position: 'relative',
+            minHeight: `100vh`,
+            maxWidth: rhythm(24),
+            textAlign: 'center'
+          }}
+        >
+          <div>
+            <h1>Cindy + PK</h1>
+            <span>March 30, 2019</span>
+            <br />
+            <span>Schabarum Regional Park<br />Rowland Heights, California</span>
+          </div>
+          <object
+            id="weddingsvg"
+            data="/wedding/CindynPK.svg"
+            type="image/svg+xml"
+            onLoad={this._onLoadSVG} />
+        </div>
         <RSVPForm />
-      </Layout>
+      </div>
     )
   }
 }
 
-export default BlogIndex
+export default Wedding

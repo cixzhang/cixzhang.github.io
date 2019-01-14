@@ -29,6 +29,7 @@ class RSVPForm extends React.PureComponent {
       content = 'Please wait, this should only take a few seconds...'
     }
     return <div className="wedding-rsvp-form">
+      <h2>RSVP</h2>
       {content}
     </div>
   }

@@ -7,9 +7,17 @@ import BackLink from '../components/BackLink'
 
 class Layout extends React.Component {
   render() {
-    const { location, children, header: _header } = this.props
+    const { location, children, header: _header, footer: _footer } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
-    const header = _header || (location.pathname === rootPath ? <Bio /> : <BackLink />);
+    const header = _header !== undefined ?
+      _header :
+      (location.pathname === rootPath ? <Bio /> : <BackLink />);
+
+    const footer = _footer !== undefined ?
+      _footer :
+      <footer>
+        © {new Date().getFullYear()}
+      </footer>;
 
     return (
       <div
@@ -22,9 +30,7 @@ class Layout extends React.Component {
       >
         {header}
         {children}
-        <footer>
-          © {new Date().getFullYear()}
-        </footer>
+        {footer}
       </div>
     )
   }
