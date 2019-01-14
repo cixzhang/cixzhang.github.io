@@ -4,6 +4,7 @@
 body {
   background-color: #BDDCA9;
   font-family: 'Josefin Slab', serif;
+  font-size: 18px;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -13,4 +14,29 @@ h1,h2,h3,h4,h5,h6 {
 
 h1 {
   margin-top: 0.5em;
+}
+
+input, textarea, button {
+  border-radius: 6px;
+  border: 0px;
+}
+
+input, textarea {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  resize: vertical;
+  flex: 1;
+}
+
+button {
+  margin-left: 0.25em;
+}
+
+.single-line-form {
+  display: flex;
+}
+
+.single-line-form button,
+.single-line-form label {
+  flex-shrink: 0;
 }

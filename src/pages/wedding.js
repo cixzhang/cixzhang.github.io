@@ -38,7 +38,7 @@ class Wedding extends React.Component {
             <h1>Cindy + PK</h1>
             <span>March 30, 2019</span>
             <br />
-            <span>Schabarum Regional Park<br />Rowland Heights, California</span>
+            <span>Schabarum Regional Park<br />17250 E Colima Rd, Rowland Heights, California</span>
           </div>
           <object
             id="weddingsvg"
