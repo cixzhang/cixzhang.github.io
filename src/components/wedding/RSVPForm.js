@@ -30,7 +30,7 @@ class RSVPForm extends React.PureComponent {
     if (this.state.pending) {
       content = 'Please wait, this should only take a few seconds...'
     }
-    return <div className="wedding-rsvp-form">
+    return <div id="rsvp" className="wedding-rsvp-form">
       <h2>RSVP</h2>
       {content}
     </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { rhythm } from '../../utils/typography'
 
-
 function Header() {
   return (
     <div
@@ -20,13 +19,20 @@ function Header() {
         <h1>Cindy + PK</h1>
         <span>March 30, 2019</span>
         <br />
-        <span>Schabarum Regional Park<br />17250 E Colima Rd, Rowland Heights, California</span>
+        <span>Schabarum Regional Park<br />17250 E Colima Rd, Rowland Heights<br/>California</span>
       </div>
       <object
         id="weddingsvg"
         data="/wedding/CindynPK.svg"
         type="image/svg+xml"
       />
+      <button
+        onClick={() => {
+          window.location.hash = '';
+          window.location.hash = '#rsvp';
+        }}>
+        RSVP
+      </button>
     </div>
   );
 }

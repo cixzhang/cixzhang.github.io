@@ -1,0 +1,10 @@
+import React from 'react';
+
+function Section({title, children}) {
+  return <div className="wedding-info-section">
+    <h2>{title}</h2>
+    {children}
+  </div>
+}
+
+export default Section;

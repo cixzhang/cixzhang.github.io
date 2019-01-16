@@ -1,10 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css?family=Josefin+Slab:400,600');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body.wedding {
   background-color: #BDDCA9;
-  font-family: 'Josefin Slab', serif;
-  font-size: 18px;
+  font-family: 'Open Sans', serif;
 }
 
 body.wedding h1,
@@ -54,7 +54,7 @@ body.wedding button:active {
 }
 
 body.wedding .wedding-rsvp-form {
-  height: 350px;
+  height: 280px;
 }
 body.wedding .single-line-form {
   display: flex;
