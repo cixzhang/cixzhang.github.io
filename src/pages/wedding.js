@@ -26,7 +26,7 @@ class Wedding extends React.Component {
         </Section>
         <Section title="Dress Code">
           <p>
-            Semi-Casual. There will be grassy areas so you
+            Cocktail attire. There will be grassy areas so you
             may want to avoid pointy heels.
           </p>
         </Section>

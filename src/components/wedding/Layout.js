@@ -6,7 +6,6 @@ import { rhythm } from '../../utils/typography'
 import Header from "./Header"
 
 function Layout({children}) {
-  window.document.body.classList.add('wedding');
   return (
     <div
       style={{
