@@ -1,20 +1,26 @@
 
 @import url('https://fonts.googleapis.com/css?family=Josefin+Slab:400,600');
 
-body {
+body.wedding {
   background-color: #BDDCA9;
   font-family: 'Josefin Slab', serif;
   font-size: 18px;
 }
 
-h1,h2,h3,h4,h5,h6 {
+body.wedding h1,
+body.wedding h2,
+body.wedding h3,
+body.wedding h4,
+body.wedding h5,
+body.wedding h6 {
   font-family: 'Josefin Slab', serif;
   font-weight: 600;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
 
-input, textarea {
+body.wedding input,
+body.wedding textarea {
   border-radius: 4px;
   border: 1px solid hsl(0,0%,80%);
   background-color: rgba(255, 255, 255, 1);
@@ -24,11 +30,11 @@ input, textarea {
   padding: 2px 8px;
 }
 
-.select {
+body.wedding .select {
   width: 100%;
 }
 
-button {
+body.wedding button {
   border-radius: 4px;
   margin-left: 0.25em;
   background-color: rgba(116, 166, 145, 50);
@@ -37,24 +43,24 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+body.wedding button:hover {
   border: 1px solid white;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
-button:active {
+body.wedding button:active {
   border: 1px solid white;
   background-color: rgba(116, 166, 145, 100);
 }
 
-.wedding-rsvp-form {
+body.wedding .wedding-rsvp-form {
   height: 350px;
 }
-.single-line-form {
+body.wedding .single-line-form {
   display: flex;
 }
 
-.single-line-form button,
-.single-line-form label {
+body.wedding .single-line-form button,
+body.wedding .single-line-form label {
   flex-shrink: 0;
 }
