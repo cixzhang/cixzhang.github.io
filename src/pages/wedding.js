@@ -11,23 +11,28 @@ class Wedding extends React.Component {
         <Section title="Info">
           <p>Join us for a wedding ceremony and a picnic in the park!</p>
           <p>
-            <strong>March 30, 2019</strong><br />
-            <span>Ceremony starts 10am</span>
-          </p>
-          <p>
-            <strong>Schabarum Regional Park</strong><br />
-            <span>17250 E Colima Rd, Rowland Heights, California</span>
-          </p>
-          <p>
             Lunch will be provided.<br />
             No alcohol.<br />
             Plenty of activities. :)
           </p>
         </Section>
+        <Section title="Date and Time">
+          <p>
+            <strong>March 30, 2019</strong><br />
+            <span>Ceremony starts 10am</span><br />
+            <span>Picnic reception from 11am to 2pm</span>
+          </p>
+        </Section>
+        <Section title="Location/Address">
+          <p>
+            <strong>Schabarum Regional Park, Gazebo</strong><br />
+            <span>17250 E Colima Rd<br />Rowland Heights, California</span>
+          </p>
+        </Section>
         <Section title="Dress Code">
           <p>
-            Cocktail attire. There will be grassy areas so you
-            may want to avoid pointy heels.
+            Cocktail or semi-casual attire. Dress comfortably.
+            There will be grassy areas so you may want to avoid pointy heels.
           </p>
         </Section>
         <Section title="Gifts">

@@ -17,9 +17,9 @@ function Header() {
     >
       <div>
         <h1>Cindy + PK</h1>
-        <span>March 30, 2019</span>
+        <span>March 30, 2019 @ 10am</span>
         <br />
-        <span>Schabarum Regional Park<br />17250 E Colima Rd, Rowland Heights<br/>California</span>
+        <span>Schabarum Regional Park</span>
       </div>
       <object
         id="weddingsvg"
