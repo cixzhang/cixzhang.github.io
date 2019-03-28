@@ -3,9 +3,12 @@ import React from 'react'
 import RSVPForm from '../components/wedding/RSVPForm'
 import Section from '../components/wedding/Section'
 import Layout from '../components/wedding/Layout'
+import WeddingMap from '../components/wedding/WeddingMap'
 
 class Wedding extends React.Component {
   render() {
+    const { data } = this.props;
+
     return (
       <Layout>
         <Section title="Info">
@@ -16,19 +19,36 @@ class Wedding extends React.Component {
             Plenty of activities. :)
           </p>
         </Section>
-        <Section title="Date and Time">
-          <p>
-            <strong>March 30, 2019</strong><br />
-            <span>Ceremony starts 10am</span><br />
-            <span>Picnic reception from 11am to 2pm</span>
-          </p>
-        </Section>
-        <Section title="Location/Address">
-          <p>
-            <strong>Schabarum Regional Park, Gazebo</strong><br />
-            <span>17250 E Colima Rd<br />Rowland Heights, California</span>
-          </p>
-        </Section>
+        <div className="location-and-time">
+          <div className="location-and-time-info">
+            <Section title="Date and Time">
+              <p>
+                <strong>March 30, 2019</strong><br />
+                <span>Ceremony starts 10am</span><br />
+                <span>Picnic reception from 11am to 2pm</span>
+              </p>
+            </Section>
+            <Section title="Location/Address">
+              <p>
+                <strong>Schabarum Regional Park, Gazebo</strong><br />
+                <span>17250 E Colima Rd<br />Rowland Heights, California</span>
+              </p>
+              <p>
+                <strong>Coordinates:</strong> 33.985469, -117.927168<br />
+                <a target="_blank" href="https://goo.gl/maps/7LGcA5vmMky">Google Maps</a>
+              </p>
+              <p>
+                <strong>Parking:</strong> The park has plenty of
+                spaces next to the Gazebo. There's a vehicle entrance
+                fee: <strong>$6</strong>, cash or credit. Unfortunately,
+                the park does not provide prepaid vehicle entrance tickets,
+                so contact us if you would like a reimbursement.
+                You can also park across the street at La Puente Hills Mall for free.
+              </p>
+            </Section>
+          </div>
+          <WeddingMap />
+        </div>
         <Section title="Dress Code">
           <p>
             Cocktail or semi-casual attire. Dress comfortably.
@@ -49,19 +69,22 @@ class Wedding extends React.Component {
             with accomodations!
           </p>
         </Section>
-        <Section title="Parking">
-          <p>
-            The park has plenty of parking.
-            There is a vehicle entrance fee of <strong>$6</strong> to enter on weekends.
-            Prepaid tickets are only available starting the week prior to the wedding.
-            If you would like a prepaid ticket and can meet us at least a day prior to the event,
-            let us know!
-          </p>
-        </Section>
         <RSVPForm />
       </Layout>
     )
   }
 }
+
+// export const pageQuery = graphql`
+//   query {
+//     site {
+//       siteMetadata {
+//         apis {
+//           googleMaps
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default Wedding

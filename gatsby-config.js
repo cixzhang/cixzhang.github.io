@@ -6,7 +6,7 @@ module.exports = {
     siteUrl: `https://cixzhang.github.io`,
     social: {
       github: 'cixzhang'
-    },
+    }
   },
   plugins: [
     {

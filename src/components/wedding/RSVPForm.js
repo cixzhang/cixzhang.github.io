@@ -42,7 +42,7 @@ class RSVPForm extends React.PureComponent {
     switch(section) {
       case SECTION_ENTER_NAME: {
         return <form onSubmit={this._onSubmitFullName}>
-          <label for="fullname">Full Name</label>
+          <label name="fullname">Full Name</label>
           <div className="single-line-form">
             <input type="text" name="fullname" />
             <button type="submit">Find Me</button>
@@ -76,10 +76,10 @@ class RSVPForm extends React.PureComponent {
           <span>
             ~Welcome <b>{this.state.name}</b>!~
           </span><br />
-          <label for="num">How many are attending?</label>
+          <label name="num">How many are attending?</label>
           <input type="number" name="num" min="0" max="10"/>
           <br />
-          <label for="note">Leave us a note</label>
+          <label name="note">Leave us a note</label>
           <textarea name="note"></textarea>
           <button type="submit" style={{float: 'right'}}>Submit</button>
         </form>
